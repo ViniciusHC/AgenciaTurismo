@@ -1,0 +1,35 @@
+# --- IDEs ---
+.vs/
+.idea/
+.vscode/
+*.iml
+
+# --- Compilados C# ---
+bin/
+obj/
+
+# --- Compilados Java ---
+target/
+out/
+*.class
+
+# --- Arquivos de build ---
+*.jar
+*.war
+*.ear
+*.dll
+*.exe
+
+# --- Logs ---
+*.log
+
+# --- Sistema ---
+*.db
+*.db-journal
+Thumbs.db
+ehthumbs.db
+.DS_Store
+
+# --- Outros temporários ---
+*.tmp
+*.swp
