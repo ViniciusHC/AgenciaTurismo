@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AgenciaTurismo.Data;
 using AgenciaTurismo.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AgenciaTurismo.Controllers
 {
@@ -20,6 +21,7 @@ namespace AgenciaTurismo.Controllers
         }
 
         // GET: Reservas
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Reservas.Include(r => r.Cliente).Include(r => r.PacoteTuristico);
@@ -27,6 +29,7 @@ namespace AgenciaTurismo.Controllers
         }
 
         // GET: Reservas/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AgenciaTurismo.Data;
 using AgenciaTurismo.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AgenciaTurismo.Controllers
 {
@@ -20,12 +21,14 @@ namespace AgenciaTurismo.Controllers
         }
 
         // GET: Destinos
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Destinos.ToListAsync());
         }
 
         // GET: Destinos/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)

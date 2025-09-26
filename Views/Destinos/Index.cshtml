@@ -5,10 +5,17 @@
 }
 
 <h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+@if (User.Identity.IsAuthenticated)
+{
+    <p>Olá, @User.Identity.Name!</p>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
+else
+{
+    <p>Por favor faça o login.</p>
+}
 <table class="table">
     <thead>
         <tr>
